@@ -1,5 +1,7 @@
+import Tasks from "./components/to-do-list"
+
 function App() {
-  return < />
+  return <Tasks/>
 }
 
 export default App
