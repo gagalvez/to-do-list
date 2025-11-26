@@ -46,14 +46,14 @@ function TodoItem({
           onClick={onSaveEdit}
           className="text-xs text-emerald-400 hover:text-emerald-300"
         >
-          Guardar
+          Save
         </button>
       ) : (
         <button
           onClick={onStartEditing}
           className="text-xs text-slate-400 hover:text-sky-400"
         >
-          Editar
+          Edit
         </button>
       )}
 
@@ -61,7 +61,7 @@ function TodoItem({
         onClick={onDelete}
         className="text-xs text-slate-500 hover:text-red-400"
       >
-        Eliminar
+        Delete
       </button>
     </li>
   );

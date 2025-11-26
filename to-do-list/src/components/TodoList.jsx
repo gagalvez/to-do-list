@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import TodoItem from "./TodoItem";
+import TodoForm from "./TodoForm";
 
 function createInitialTodos() {
   const saved = localStorage.getItem("todos");
@@ -53,7 +54,7 @@ function TodoList() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center px-4">
-      <div className="w-full max-w-md rounded-2xl bg-slate-900/80 border border-slate-700 shadow-xl shadow-sky-500/20 backdrop-blur-sm p-6 space-y-5">
+      <div className="w-full max-w-md rounded-2xl bg-slate-900/80 border border-slate-700 shadow-xl shadow-sky-600/12 backdrop-blur-sm p-6 space-y-5">
         <header className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-semibold tracking-tight">
@@ -63,24 +64,11 @@ function TodoList() {
           </div>
         </header>
 
-        <section className="space-y-3">
-          <div className="flex gap-2">
-            <input
-              type="text"
-              value={text}
-              placeholder="Escribe una tarea..."
-              onChange={(e) => setText(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && addTask()}
-              className="flex-1 rounded-xl bg-slate-900/60 border border-slate-700 px-3 py-2 text-sm outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/40"
-            />
-            <button
-              onClick={addTask}
-              className="rounded-xl bg-sky-500 px-4 py-2 text-sm font-medium text-slate-950 hover:bg-sky-400 active:scale-[0.98] transition"
-            >
-              Add
-            </button>
-          </div>
-        </section>
+        <TodoForm
+          text={text}
+          onChangeText={setText}
+          onSubmit={addTask}
+        />
 
         <section className="space-y-2 max-h-80 overflow-y-auto pr-1 mt-2">
           {todos.length === 0 ? (
